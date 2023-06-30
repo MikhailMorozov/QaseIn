@@ -2,7 +2,9 @@ package utilities;
 
 public class Urls {
 
-    public static final String BASE_URL = "htttps://....";
+    //API
+    public static final String BASE_API_URL = "https://api.qase.io";
+    public static final String PROJECT_API_URL = "/v1/project";
 
     private Urls() {
     }
