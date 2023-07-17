@@ -2,6 +2,7 @@ package ui.page;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import ui.elements.DropDown;
 import ui.model.Project;
 
 @Log4j2
@@ -11,6 +12,7 @@ public class ProjectsPage extends BasePage{
     private static final By PROJECT_NAME_INPUT = By.xpath("//input[@id='project-name']");
     private static final By PROJECT_CODE_INPUT = By.xpath("//input[@id='project-code']");
     private static final By CREATE_PROJECT_BUTTON = By.xpath("//button[@type='submit']");
+
 
     public boolean isButtonCreateNewProjectDisplayed() {
         log.info("is displayed button 'Create new project'");
@@ -31,7 +33,7 @@ public class ProjectsPage extends BasePage{
 
     public ProjectsPage inputProjectCode(Project project) {
         log.info("input project code");
-        driver.findElement(PROJECT_NAME_INPUT).sendKeys(project.getProjectCode());
+        driver.findElement(PROJECT_CODE_INPUT).sendKeys(project.getProjectCode());
         return this;
     }
 
@@ -40,5 +42,13 @@ public class ProjectsPage extends BasePage{
         driver.findElement(CREATE_PROJECT_BUTTON).click();
         return this;
     }
+
+    public ProjectsPage deleteProject(Project project) {
+        log.info("to click delete project");
+        new DropDown(driver).selectOptionDelete(project.getProjectName());
+        return this;
+    }
+
+
 
 }

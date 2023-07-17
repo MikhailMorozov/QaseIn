@@ -14,4 +14,9 @@ public class ProjectSteps {
         log.info("get name project");
         return projectPage.getNameProject();
     }
+
+    public String getNameProject(String nameProject) {
+        log.info("get name project");
+        return projectPage.getNameProject(nameProject);
+    }
 }
