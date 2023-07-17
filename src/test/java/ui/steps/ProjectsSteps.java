@@ -28,7 +28,8 @@ public class ProjectsSteps {
     @Step("Delete project")
     public ProjectsSteps deleteProject(Project project) {
         log.info("delete project");
-        projectsPage.deleteProject(project);
+        projectsPage.clickProjectsButton()
+                .deleteProject(project);
         return this;
     }
 }

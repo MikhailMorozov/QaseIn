@@ -9,6 +9,8 @@ import ui.model.Project;
 public class ProjectsPage extends BasePage{
 
     private static final By CREATE_NEW_PROJECT_BUTTON = By.xpath("//button[@id='createButton']");
+
+    private static final By PROJECTS_BUTTON = By.xpath("//a[contains(text(),'Projects')]");
     private static final By PROJECT_NAME_INPUT = By.xpath("//input[@id='project-name']");
     private static final By PROJECT_CODE_INPUT = By.xpath("//input[@id='project-code']");
     private static final By CREATE_PROJECT_BUTTON = By.xpath("//button[@type='submit']");
@@ -40,6 +42,12 @@ public class ProjectsPage extends BasePage{
     public ProjectsPage clickCreateProjectButton() {
         log.info("to click Create project button");
         driver.findElement(CREATE_PROJECT_BUTTON).click();
+        return this;
+    }
+
+    public ProjectsPage clickProjectsButton() {
+        log.info("click project button");
+        driver.findElement(PROJECTS_BUTTON).click();
         return this;
     }
 

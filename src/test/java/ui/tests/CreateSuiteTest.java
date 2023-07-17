@@ -1,16 +1,19 @@
 package ui.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ui.model.Project;
+import ui.model.Suite;
 import ui.model.User;
-import ui.page.ProjectsPage;
 import ui.steps.LoginSteps;
+import ui.steps.ProjectSteps;
 import ui.steps.ProjectsSteps;
 
-public class DeleteProjectTest extends BaseTest{
+public class CreateSuiteTest extends BaseTest{
 
     Project project = new Project("AQA21", "WE");
+    Suite suite = new Suite("TestSuite");
     ProjectsSteps projectsSteps = new ProjectsSteps();
 
     @BeforeClass
@@ -19,11 +22,13 @@ public class DeleteProjectTest extends BaseTest{
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
         projectsSteps.createProject(project);
-
     }
+
     @Test
-    public void deleteProjectTest() {
-        projectsSteps.deleteProject(project);
+    public void createNewSuiteTest() {
+        ProjectSteps projectSteps = new ProjectSteps();
+        projectSteps.createNewSuite(suite);
+        Assert.assertTrue(projectSteps.messageSuccessCreateNewSuiteIsDisplayed(), "Suite don't create");
     }
 
 }

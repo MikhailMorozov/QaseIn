@@ -1,8 +1,6 @@
 
 Q
 !src/test/java/utilities/Urls.java,0\7\0724c89a77aafef13e4b5cd64edffb431c759621
-V
-&src/test/java/utilities/Constants.java,8\2\824628e6cf0e868e30de55ad0da27a1033ad9350
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 Y
@@ -17,3 +15,27 @@ R
 "src/test/java/api/models/Runs.java,3\5\35d8086d6f179bc87587708ff70dd31feb7b216d
 T
 $src/test/java/api/models/Counts.java,6\0\60f6b963be0a67f3400c8d6322e8e36449910005
+X
+(src/test/java/api/tests/ProjectTest.java,6\c\6c5e72be4afd2ceb4e618b245bf7c5d46cc98fae
+]
+-src/test/java/api/adapter/ProjectAdapter.java,9\e\9e3e10fb8c729a6552dc121b79cdbbac3d4f3652
+Z
+*src/test/java/api/adapter/BaseAdapter.java,7\4\7403adad584fac76b985882fdbc751a315193110
+U
+%src/test/java/ui/tests/LoginTest.java,c\2\c26628478666f8fb2c813515a11fc97613f9933f
+\
+,src/test/java/ui/driver/DriverSingleton.java,9\b\9bea39ce3af278f36ca74fcdb756736899f49685
+]
+-src/test/java/ui/driver/WebDriverFactory.java,1\9\192f40476a61110f47ed60e774638f8dd8ec0ff1
+P
+ src/test/java/ui/model/User.java,f\9\f94dca8380fbd786b2b27e299d709f42e880a678
+T
+$src/test/java/ui/tests/BaseTest.java,0\0\002b375d0972af689b9e2355e439829c84e83365
+V
+&src/test/java/ui/steps/LoginSteps.java,c\9\c95b1a6f2cfb990e845c140a45b63f1291390558
+]
+-src/test/java/ui/tests/CreateProjectTest.java,c\6\c6f53fb71b4f129d6d966ff6e633f442bcc3fa7a
+S
+#src/test/java/ui/model/Project.java,5\b\5b269ed2cbc3281dcd796b0758b9d94c65dc87e2
+V
+&src/test/java/utilities/Constants.java,8\2\824628e6cf0e868e30de55ad0da27a1033ad9350
