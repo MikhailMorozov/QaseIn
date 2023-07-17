@@ -19,4 +19,6 @@ public class ProjectSteps {
         log.info("get name project");
         return projectPage.getNameProject(nameProject);
     }
+
+    public ProjectSteps createNewSuite()
 }
