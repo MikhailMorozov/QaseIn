@@ -45,4 +45,18 @@ public class ProjectsSteps {
         log.info("is name project in projects list");
         return projectsPage.isNameProjectInProjectsList((projectsPage.listNameProjects(projectsPage.listProjects())), project.getProjectName());
     }
+
+    @Step("Message data invalid is displayed")
+    public boolean messageDataInvalidIsDisplayed() {
+        log.info("message 'Data is invalid.' is displayed");
+        return projectsPage.isMessageDataInvalidDisplayed();
+    }
+
+    @Step("go to project site")
+    public ProjectsSteps clickProject(Project project) {
+        log.info("click project on projects list");
+        projectsPage.clickCancelButton()
+                .clickProject(project.getProjectName());
+        return this;
+    }
 }

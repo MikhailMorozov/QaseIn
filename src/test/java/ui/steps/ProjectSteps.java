@@ -63,4 +63,11 @@ public class ProjectSteps {
         log.info("message 'Suite was successfully deleted' is displayed");
         return projectPage.isMessageSuccessDeleteSuiteDisplayed();
     }
+
+    @Step("go to projects site")
+    public ProjectSteps clickProjectsButton() {
+        log.info("click Projects button");
+        projectPage.clickProjectsButton();
+        return this;
+    }
 }

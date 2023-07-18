@@ -13,12 +13,14 @@ import java.util.List;
 public class ProjectsPage extends BasePage{
 
     private static final By CREATE_NEW_PROJECT_BUTTON = By.xpath("//button[@id='createButton']");
-
     private static final By PROJECTS_BUTTON = By.xpath("//a[contains(text(),'Projects')]");
+    private static final By CANCEL_BUTTON = By.xpath("//*[(text()='Cancel')]");
     private static final By PROJECT_NAME_INPUT = By.xpath("//input[@id='project-name']");
     private static final By PROJECT_CODE_INPUT = By.xpath("//input[@id='project-code']");
     private static final By CREATE_PROJECT_BUTTON = By.xpath("//button[@type='submit']");
     private static final By PROJECTS_LIST = By.xpath("//a[@class='defect-title']");
+    private static final By DATA_INVALID_MESSAGE = By.xpath("//*[(text()='Data is invalid.')]");
+    private static final String PROJECT_ON_LIST = "//*[(text()='%s')]";
 
 
     public boolean isButtonCreateNewProjectDisplayed() {
@@ -65,6 +67,7 @@ public class ProjectsPage extends BasePage{
     }
 
     public List<WebElement> listProjects () {
+        log.info("refresh site");
         driver.navigate().refresh();
         return driver.findElements(PROJECTS_LIST);
     }
@@ -81,6 +84,24 @@ public class ProjectsPage extends BasePage{
 
     public boolean isNameProjectInProjectsList(List<String> listNameProjects, String nameProject) {
         return listNameProjects.contains(nameProject);
+    }
+
+    public boolean isMessageDataInvalidDisplayed() {
+        log.info("is displayed message 'Data is invalid.'");
+        return driver.findElement(DATA_INVALID_MESSAGE).isDisplayed();
+    }
+
+    public ProjectsPage clickProject(String nameProject) {
+        log.info("click project on project list");
+        waitForElement(By.xpath(String.format(PROJECT_ON_LIST, nameProject)));
+        driver.findElement(By.xpath(String.format(PROJECT_ON_LIST, nameProject))).click();
+        return this;
+    }
+
+    public ProjectsPage clickCancelButton() {
+        log.info("to click Cancel button");
+        driver.findElement(CANCEL_BUTTON).click();
+        return this;
     }
 
 

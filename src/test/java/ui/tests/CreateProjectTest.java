@@ -15,6 +15,7 @@ public class CreateProjectTest extends BaseTest{
     private String codeProject = TestDataGenerator.generateCodeProject();
     Project project = new Project(nameProject, codeProject);
     ProjectsSteps projectsSteps = new ProjectsSteps();
+    ProjectSteps projectSteps = new ProjectSteps();
 
     @BeforeClass
     public void setUp() {
@@ -23,15 +24,22 @@ public class CreateProjectTest extends BaseTest{
         loginSteps.login(user);
     }
 
-    @Test
+    @Test (priority  = 1)
     public void createProjectTest() {
-        ProjectSteps projectSteps = new ProjectSteps();
         projectsSteps.createProject(project);
         Assert.assertEquals(projectSteps.getNameProject(project.getProjectName()),project.getProjectName(), "Project don't created");
     }
 
-    @AfterClass
-    public void cleanUp() {
-        projectsSteps.deleteProject(project);
+    @Test (priority  = 2)
+    public void createProjectSameCodeProjectTest() {
+        projectSteps.clickProjectsButton();
+        projectsSteps.createProject(project);
+        Assert.assertTrue(projectsSteps.messageDataInvalidIsDisplayed(), "Message don't displayed");
     }
+
+//    @AfterClass
+//    public void cleanUp() {
+//        projectsSteps.clickProject(project)
+//                .deleteProject(project);
+//    }
 }
