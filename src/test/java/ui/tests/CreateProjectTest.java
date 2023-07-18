@@ -7,8 +7,14 @@ import ui.model.User;
 import ui.steps.LoginSteps;
 import ui.steps.ProjectSteps;
 import ui.steps.ProjectsSteps;
+import utilities.TestDataGenerator;
 
 public class CreateProjectTest extends BaseTest{
+
+    private String nameProject = TestDataGenerator.generateNameProject();
+    private String codeProject = TestDataGenerator.generateCodeProject();
+    Project project = new Project(nameProject, codeProject);
+    ProjectsSteps projectsSteps = new ProjectsSteps();
 
     @BeforeClass
     public void setUp() {
@@ -19,10 +25,13 @@ public class CreateProjectTest extends BaseTest{
 
     @Test
     public void createProjectTest() {
-        Project project = new Project("AQA21", "WE");
-        ProjectsSteps projectsSteps = new ProjectsSteps();
         ProjectSteps projectSteps = new ProjectSteps();
         projectsSteps.createProject(project);
         Assert.assertEquals(projectSteps.getNameProject(project.getProjectName()),project.getProjectName(), "Project don't created");
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        projectsSteps.deleteProject(project);
     }
 }

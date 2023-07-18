@@ -18,7 +18,7 @@ public class CaseSteps {
         return this;
     }
 
-    @Step("case is displayed")
+    @Step("Message delete case is displayed")
     public boolean messageSuccessDeleteCaseIsDisplayed() {
         log.info("message '1 test case was successfully deleted' is displayed");
         return projectPage.isMessageSuccessDeleteCaseDisplayed();

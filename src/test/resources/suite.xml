@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="qase.io tests" >
+    <test name="UI tests" parallel="tests" thread-count="1">
+        <classes>
+            <class name="ui.tests.LoginTest"/>
+            <class name="ui.tests.CreateProjectTest"/>
+            <class name="ui.tests.DeleteProjectTest"/>
+            <class name="ui.tests.CreateSuiteTest"/>
+            <class name="ui.tests.DeleteSuiteTest"/>
+            <class name="ui.tests.CreateCaseTest"/>
+            <class name="ui.tests.DeleteCaseTest"/>
+        </classes>
+    </test>
+    <test name="API tests" parallel="tests" thread-count="1">
+        <classes>
+            <class name="api.tests.ProjectTest"/>
+        </classes>
+    </test>
+</suite>

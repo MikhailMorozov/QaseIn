@@ -1,6 +1,7 @@
 package ui.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ui.model.Case;
@@ -11,11 +12,16 @@ import ui.steps.LoginSteps;
 import ui.steps.NewCaseSteps;
 import ui.steps.ProjectSteps;
 import ui.steps.ProjectsSteps;
+import utilities.TestDataGenerator;
 
 public class CreateCaseTest extends BaseTest{
-    Project project = new Project("AQA21", "WE");
+    private String nameProject = TestDataGenerator.generateNameProject();
+    private String codeProject = TestDataGenerator.generateCodeProject();
+    private String titleCase = TestDataGenerator.generateTitleCase();
+
+    Project project = new Project(nameProject, codeProject);
     Case testCase = Case.builder()
-            .title("TestCase")
+            .title(titleCase)
             .status("Draft")
             .suite("Test cases without suite")
             .severity("Critical")
@@ -42,5 +48,10 @@ public class CreateCaseTest extends BaseTest{
         newCaseSteps.createNewCase(testCase);
         ProjectSteps projectSteps = new ProjectSteps();
         Assert.assertTrue(projectSteps.messageSuccessCreateNewSuitCaseIsDisplayed(), "Case don't create");
+    }
+
+    @AfterClass
+    public void cleanUp() {
+        projectsSteps.deleteProject(project);
     }
 }

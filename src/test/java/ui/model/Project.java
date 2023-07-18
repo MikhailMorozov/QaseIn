@@ -8,5 +8,4 @@ import lombok.Data;
 public class Project {
     private String ProjectName;
     private String ProjectCode;
-
 }

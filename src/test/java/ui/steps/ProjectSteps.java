@@ -52,9 +52,15 @@ public class ProjectSteps {
         return this;
     }
 
-    @Step("case is displayed")
+    @Step("Message new case create is displayed")
     public boolean messageSuccessCreateNewSuitCaseIsDisplayed() {
         log.info("message 'Test case was created successfully!' is displayed");
         return projectPage.isMessageSuccessCreateNewCaseDisplayed();
+    }
+
+    @Step("Message delete suite is displayed")
+    public boolean messageSuccessDeleteSuiteIsDisplayed() {
+        log.info("message 'Suite was successfully deleted' is displayed");
+        return projectPage.isMessageSuccessDeleteSuiteDisplayed();
     }
 }

@@ -13,7 +13,7 @@ public abstract class BasePage {
 
     public BasePage() {
         this.driver = DriverSingleton.getInstance().getDriver();
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, 15);
     }
 
     public WebElement waitForElement(By locator) {
