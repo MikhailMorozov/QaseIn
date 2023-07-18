@@ -25,6 +25,8 @@ public class ProjectPage extends BasePage{
     private static final By CONFIRM_INPUT = By.xpath("//input[@name='confirm']");
     private static final String TEXT_TO_CONFIRM_DELETE = "CONFIRM";
     private static final By DELETE_ON_FORM_BUTTON = By.xpath("//*[(text()='Delete')]");
+    private static final By SUCCESS_DELETE_CASE_MESSAGE = By.xpath("//span[contains(text(),'1 test case was successfully deleted')]");
+
 
 
 
@@ -111,6 +113,11 @@ public class ProjectPage extends BasePage{
         log.info("click delete button on form delete case");
         driver.findElement(DELETE_ON_FORM_BUTTON).click();
         return this;
+    }
+
+    public boolean isMessageSuccessDeleteCaseDisplayed() {
+        log.info("is displayed message '1 test case was successfully deleted'");
+        return driver.findElement(SUCCESS_DELETE_CASE_MESSAGE).isDisplayed();
     }
 
 }

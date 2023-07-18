@@ -1,5 +1,6 @@
 package ui.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ui.model.Case;
@@ -41,7 +42,7 @@ public class DeleteCaseTest extends BaseTest{
     public void deleteCaseTest() {
         CaseSteps caseSteps = new CaseSteps();
         caseSteps.deleteCase(testCase);
-
+        Assert.assertTrue(caseSteps.messageSuccessDeleteCaseIsDisplayed(), "Case don't delete");
     }
 
 }
