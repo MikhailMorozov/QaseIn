@@ -14,13 +14,14 @@ public class CreateSuiteTest extends BaseTest{
 
     Project project = new Project("AQA21", "WE");
     Suite suite = new Suite("TestSuite");
-    ProjectsSteps projectsSteps = new ProjectsSteps();
+
 
     @BeforeClass
     public void setUp() {
         User user = new User("m.s.morozoff@gmail.com","3359347m");
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+        ProjectsSteps projectsSteps = new ProjectsSteps();
         projectsSteps.createProject(project);
     }
 

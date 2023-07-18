@@ -12,7 +12,6 @@ import java.util.List;
 public class NewCasePage extends BasePage{
 
     private static final By TITLE_CASE = By.xpath("//input[@id='title']");
-
     private static final By SAVE_CASE_BUTTON = By.xpath("//button[@id='save-case']");
     private static final String DROP_DOWN_MENU_CASE_XPATH = "//div[@class='Thgbhj euhZGB cfvQxI']";
 
@@ -31,6 +30,12 @@ public class NewCasePage extends BasePage{
         new DropDown(driver).selectOptionCase(fieldsCase.get(6),testCase.getIsFlaky());
         new DropDown(driver).selectOptionCase(fieldsCase.get(7),testCase.getBehavior());
         new DropDown(driver).selectOptionCase(fieldsCase.get(8),testCase.getAutomationStatus());
+        return this;
+    }
+
+    public NewCasePage clickSaveCaseButton() {
+        log.info("click +Case button on project site");
+        driver.findElement(SAVE_CASE_BUTTON).click();
         return this;
     }
 

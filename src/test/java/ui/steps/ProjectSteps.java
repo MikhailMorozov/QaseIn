@@ -46,9 +46,15 @@ public class ProjectSteps {
     }
 
     @Step("click new case")
-    public ProjectSteps createNewCase() {
+    public ProjectSteps clickNewCaseButton() {
         log.info("click new case button");
         projectPage.clickCreateCaseButton();
         return this;
+    }
+
+    @Step("case is displayed")
+    public boolean messageSuccessCreateNewSuitCaseIsDisplayed() {
+        log.info("message 'Test case was created successfully!' is displayed");
+        return projectPage.isMessageSuccessCreateNewCaseDisplayed();
     }
 }

@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import ui.elements.DropDown;
+import ui.model.Case;
 import ui.model.Project;
 import ui.model.Suite;
 
@@ -17,7 +18,15 @@ public class ProjectPage extends BasePage{
     private static final By SUITE_NAME_INPUT = By.xpath("//input[@id='title']");
     private static final By CREATE_SUITE_ON_FORM_BUTTON = By.xpath("//span[(text()='Create')]");
     private static final By SUCCESS_CREATE_SUITE_MESSAGE = By.xpath("//span[contains(text(),'Suite was successfully created.')]");
+    private static final By SUCCESS_CREATE_CASE_MESSAGE = By.xpath("//span[contains(text(),'Test case was created successfully!')]");
     private static final By CREATE_CASE_BUTTON = By.xpath("//a[@id='create-case-button']");
+    private static final String CASE_CHECKBOX = "//*[(text()='%s')]//preceding::span[@class='clBETr V74Xno']";
+    private static final By DELETE_BUTTON = By.xpath("//*[(text()=' Delete')]");
+    private static final By CONFIRM_INPUT = By.xpath("//input[@name='confirm']");
+    private static final String TEXT_TO_CONFIRM_DELETE = "CONFIRM";
+    private static final By DELETE_ON_FORM_BUTTON = By.xpath("//*[(text()='Delete')]");
+
+
 
 
 
@@ -75,8 +84,33 @@ public class ProjectPage extends BasePage{
         return this;
     }
 
+    public boolean isMessageSuccessCreateNewCaseDisplayed() {
+        log.info("is displayed message 'Test case was created successfully!'");
+        return driver.findElement(SUCCESS_CREATE_CASE_MESSAGE).isDisplayed();
+    }
 
+    public ProjectPage clickCheckboxCase(Case testCase) {
+        log.info("click checkbox case");
+        driver.findElement(By.xpath(String.format(CASE_CHECKBOX, testCase.getTitle()))).click();
+        return this;
+    }
 
+    public ProjectPage clickDeleteButton() {
+        log.info("click delete button");
+        driver.findElement(DELETE_BUTTON).click();
+        return this;
+    }
 
+    public ProjectPage inputTextToConfirmDelete() {
+        log.info("input suite name");
+        driver.findElement(CONFIRM_INPUT).sendKeys(TEXT_TO_CONFIRM_DELETE);
+        return this;
+    }
+
+    public ProjectPage clickDeleteButtonOnFormDeleteCase() {
+        log.info("click delete button on form delete case");
+        driver.findElement(DELETE_ON_FORM_BUTTON).click();
+        return this;
+    }
 
 }
