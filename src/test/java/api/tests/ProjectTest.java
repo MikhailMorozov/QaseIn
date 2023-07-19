@@ -21,19 +21,28 @@ public class ProjectTest {
         ProjectAdapter projectAdapter = new ProjectAdapter();
         Response response = projectAdapter.getAllProject();
         ProjectList projectList = new Gson().fromJson(response.asString(), ProjectList.class);
-//        System.out.println(projectList.toString());
-//        Assert.assertEquals(response.statusCode(), HTTP_OK);
         Assert.assertEquals(projectList.isStatus(), true);
     }
 
     @Test
-    public void postCreateNewProject() {
+    public void postCreateNewProjectTest() {
         ProjectAdapter projectAdapter = new ProjectAdapter();
         Project project = new Project(nameProject, codeProject);
-        String body = project.toString();
-        Response response = projectAdapter.postCreateNewProject(body);
-        ProjectList projectList = new Gson().fromJson(response.asString(), ProjectList.class);
-        Assert.assertEquals(projectList.isStatus(), true);
+        String requestBody = new Gson().toJson(project);
+        Response response = projectAdapter.postCreateNewProject(requestBody);
+//        int statusCode = response.getStatusCode();
+        Assert.assertEquals(response.getStatusCode(), HTTP_OK);
+    }
+
+    @Test
+    public void deleteProjectTest() {
+        ProjectAdapter projectAdapter = new ProjectAdapter();
+//        Project project = new Project(nameProject, codeProject);
+        Gson gson = new Gson();
+        String requestBody = gson.toJson(codeProject);
+        Response response = projectAdapter.deleteProject(requestBody);
+        int statusCode = response.getStatusCode();
+        Assert.assertEquals(statusCode, HTTP_OK);
     }
 
 

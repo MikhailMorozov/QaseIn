@@ -14,4 +14,8 @@ public class ProjectAdapter extends BaseAdapter{
         return post(PROJECT_API_URL, body);
     }
 
+    public Response deleteProject(String body) {
+        return delete(PROJECT_API_URL, body);
+    }
+
 }

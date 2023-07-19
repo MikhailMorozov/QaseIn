@@ -36,4 +36,17 @@ public class BaseAdapter {
                         .log().all()
                         .extract().response();
     }
+
+    public Response delete(String url, String body){
+        return
+                given()
+                        .header(TOKEN, TOKEN_VALUE)
+                        .header(CONTENT_TYPE, JSON)
+                        .body(body)
+                .when()
+                        .post(BASE_API_URL + url)
+                .then()
+                        .log().all()
+                        .extract().response();
+    }
 }

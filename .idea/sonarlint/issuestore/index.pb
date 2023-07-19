@@ -11,10 +11,6 @@ U
 %src/test/java/ui/tests/LoginTest.java,c\2\c26628478666f8fb2c813515a11fc97613f9933f
 Q
 !src/test/java/ui/model/Suite.java,5\1\5116f5da10e243dcc993cfa17d8d4851b39be254
-W
-'src/test/java/ui/page/ProjectsPage.java,7\c\7c954deb06779eacfe854aed64436b34a2e8c131
-Y
-)src/test/java/ui/steps/ProjectsSteps.java,a\4\a4de5f267c63e84d8a4b616d51891fa18afb7600
 [
 +src/test/java/ui/tests/DeleteSuiteTest.java,b\a\ba543f1c1897e468747c2432f55ce222acf47b73
 W
