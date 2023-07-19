@@ -34,15 +34,15 @@ public class ProjectTest {
         Assert.assertEquals(response.getStatusCode(), HTTP_OK);
     }
 
-    @Test
+    @Test (dependsOnMethods  = "postCreateNewProjectTest")
     public void deleteProjectTest() {
         ProjectAdapter projectAdapter = new ProjectAdapter();
 //        Project project = new Project(nameProject, codeProject);
-        Gson gson = new Gson();
-        String requestBody = gson.toJson(codeProject);
-        Response response = projectAdapter.deleteProject(requestBody);
-        int statusCode = response.getStatusCode();
-        Assert.assertEquals(statusCode, HTTP_OK);
+//        Gson gson = new Gson();
+        String requestBody = new Gson().toJson(codeProject);
+        Response response = projectAdapter.deleteProject(codeProject, requestBody);
+//        int statusCode = response.getStatusCode();
+        Assert.assertEquals(response.getStatusCode(), HTTP_OK);
     }
 
 

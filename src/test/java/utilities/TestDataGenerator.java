@@ -2,6 +2,8 @@ package utilities;
 
 import com.github.javafaker.Faker;
 
+import java.util.Locale;
+
 public class TestDataGenerator {
 
     private static final int LENGTH_NAME_PROJECT = 10;
@@ -13,7 +15,7 @@ public class TestDataGenerator {
         return faker.lorem().characters(LENGTH_NAME_PROJECT);
     }
     public static String generateCodeProject() {
-        return faker.lorem().characters(LENGTH_CODE_PROJECT);
+        return faker.lorem().characters(LENGTH_CODE_PROJECT).toUpperCase(Locale.ENGLISH);
     }
     public static String generateNameSuite() {
         return faker.lorem().characters(LENGTH_NAME_SUITE);

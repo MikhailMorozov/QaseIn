@@ -44,7 +44,7 @@ public class BaseAdapter {
                         .header(CONTENT_TYPE, JSON)
                         .body(body)
                 .when()
-                        .post(BASE_API_URL + url)
+                        .delete(BASE_API_URL + url)
                 .then()
                         .log().all()
                         .extract().response();
