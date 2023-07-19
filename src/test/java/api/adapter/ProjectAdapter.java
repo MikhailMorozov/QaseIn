@@ -10,6 +10,8 @@ public class ProjectAdapter extends BaseAdapter{
         return get(PROJECT_API_URL);
     }
 
-    
+    public Response postCreateNewProject(String body) {
+        return post(PROJECT_API_URL, body);
+    }
 
 }

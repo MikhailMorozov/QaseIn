@@ -47,6 +47,7 @@ public class ProjectPage extends BasePage{
 
     public ProjectPage clickProjectsButton() {
         log.info("click project button");
+        waitForElement(PROJECTS_BUTTON);
         driver.findElement(PROJECTS_BUTTON).click();
         return this;
     }

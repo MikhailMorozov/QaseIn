@@ -1,10 +1,4 @@
 
-Q
-!src/test/java/utilities/Urls.java,0\7\0724c89a77aafef13e4b5cd64edffb431c759621
-V
-&src/test/java/utilities/Constants.java,8\2\824628e6cf0e868e30de55ad0da27a1033ad9350
-Y
-)src/test/java/api/models/ProjectList.java,2\0\20d09fb9cc0066d464d27126f775df87acf6836e
 V
 &src/test/java/api/models/Entities.java,e\a\ea4848706b1727bff787defb3c977f69546f5c65
 T
@@ -13,11 +7,19 @@ U
 %src/test/java/api/models/Defects.java,3\a\3afe2040297d0b44af523ae924c01b57b3b29850
 R
 "src/test/java/api/models/Runs.java,3\5\35d8086d6f179bc87587708ff70dd31feb7b216d
-T
-$src/test/java/api/models/Counts.java,6\0\60f6b963be0a67f3400c8d6322e8e36449910005
-Z
-*src/test/java/api/adapter/BaseAdapter.java,7\4\7403adad584fac76b985882fdbc751a315193110
-]
--src/test/java/api/adapter/ProjectAdapter.java,9\e\9e3e10fb8c729a6552dc121b79cdbbac3d4f3652
+U
+%src/test/java/ui/tests/LoginTest.java,c\2\c26628478666f8fb2c813515a11fc97613f9933f
+Q
+!src/test/java/ui/model/Suite.java,5\1\5116f5da10e243dcc993cfa17d8d4851b39be254
+Y
+)src/test/java/ui/steps/ProjectsSteps.java,a\4\a4de5f267c63e84d8a4b616d51891fa18afb7600
+W
+'src/test/java/ui/page/ProjectsPage.java,7\c\7c954deb06779eacfe854aed64436b34a2e8c131
+[
++src/test/java/ui/tests/DeleteSuiteTest.java,b\a\ba543f1c1897e468747c2432f55ce222acf47b73
+W
+'src/test/java/ui/elements/DropDown.java,d\1\d13d947797f566220c0a56c9a8744e1ba1f32fbc
+V
+&src/test/java/ui/page/NewCasePage.java,7\7\770d3f8aff53d12013619ffd052da3b22380aaf5
 X
-(src/test/java/api/tests/ProjectTest.java,6\c\6c5e72be4afd2ceb4e618b245bf7c5d46cc98fae
+(src/test/java/ui/steps/NewCaseSteps.java,0\b\0bbca0faef5e98fab6bd70471e665203fe1d94a2

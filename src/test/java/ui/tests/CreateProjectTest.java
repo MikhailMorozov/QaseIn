@@ -24,22 +24,22 @@ public class CreateProjectTest extends BaseTest{
         loginSteps.login(user);
     }
 
-    @Test (priority  = 1)
+    @Test
     public void createProjectTest() {
         projectsSteps.createProject(project);
         Assert.assertEquals(projectSteps.getNameProject(project.getProjectName()),project.getProjectName(), "Project don't created");
     }
 
-    @Test (priority  = 2)
+    @Test (dependsOnMethods  = "createProjectTest")
     public void createProjectSameCodeProjectTest() {
         projectSteps.clickProjectsButton();
         projectsSteps.createProject(project);
         Assert.assertTrue(projectsSteps.messageDataInvalidIsDisplayed(), "Message don't displayed");
     }
 
-//    @AfterClass
-//    public void cleanUp() {
-//        projectsSteps.clickProject(project)
-//                .deleteProject(project);
-//    }
+    @AfterClass
+    public void cleanUp() {
+        projectsSteps.clickProject(project)
+                .deleteProject(project);
+    }
 }
