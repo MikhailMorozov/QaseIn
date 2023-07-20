@@ -19,7 +19,7 @@ public class ProjectTest {
     @Test
     public void getAllProjectsTest() {
         ProjectAdapter projectAdapter = new ProjectAdapter();
-        Response response = projectAdapter.getAllProject();
+        Response response = projectAdapter.getAllProjects();
         ProjectList projectList = new Gson().fromJson(response.asString(), ProjectList.class);
         Assert.assertEquals(projectList.isStatus(), true);
     }
@@ -30,20 +30,14 @@ public class ProjectTest {
         Project project = new Project(nameProject, codeProject);
         String requestBody = new Gson().toJson(project);
         Response response = projectAdapter.postCreateNewProject(requestBody);
-//        int statusCode = response.getStatusCode();
         Assert.assertEquals(response.getStatusCode(), HTTP_OK);
     }
 
     @Test (dependsOnMethods  = "postCreateNewProjectTest")
     public void deleteProjectTest() {
         ProjectAdapter projectAdapter = new ProjectAdapter();
-//        Project project = new Project(nameProject, codeProject);
-//        Gson gson = new Gson();
         String requestBody = new Gson().toJson(codeProject);
         Response response = projectAdapter.deleteProject(codeProject, requestBody);
-//        int statusCode = response.getStatusCode();
         Assert.assertEquals(response.getStatusCode(), HTTP_OK);
     }
-
-
 }

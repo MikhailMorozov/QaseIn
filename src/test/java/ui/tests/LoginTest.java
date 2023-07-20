@@ -8,7 +8,10 @@ import ui.steps.ProjectsSteps;
 
 public class LoginTest extends BaseTest{
 
-    User user = new User("m.s.morozoff@gmail.com","3359347m");
+    String login = System.getProperty("login");
+    String password = System.getProperty("password");
+
+    User user = new User(login,password);
 
     @Test
     public void loginSiteTest() {
