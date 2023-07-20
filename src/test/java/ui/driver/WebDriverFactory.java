@@ -27,7 +27,7 @@ public class WebDriverFactory {
             driver = new FirefoxDriver();
         } else {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-popup-blocking", "--disable-notifications", "--headless");
+            options.addArguments("--disable-popup-blocking", "--disable-notifications", "--headless");//"--headless"
             options.setUnhandledPromptBehaviour(ACCEPT);
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);

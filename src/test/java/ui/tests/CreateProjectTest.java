@@ -13,13 +13,15 @@ public class CreateProjectTest extends BaseTest{
 
     private String nameProject = TestDataGenerator.generateNameProject();
     private String codeProject = TestDataGenerator.generateCodeProject();
+    private String login = System.getProperty("login");
+    private String password = System.getProperty("password");
+    User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
     ProjectsSteps projectsSteps = new ProjectsSteps();
     ProjectSteps projectSteps = new ProjectSteps();
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        User user = new User("m.s.morozoff@gmail.com","3359347m");
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
     }
@@ -37,7 +39,7 @@ public class CreateProjectTest extends BaseTest{
         Assert.assertTrue(projectsSteps.messageDataInvalidIsDisplayed(), "Message don't displayed");
     }
 
-    @AfterClass
+    @AfterMethod
     public void cleanUp() {
         projectsSteps.clickProject(project)
                 .deleteProject(project);

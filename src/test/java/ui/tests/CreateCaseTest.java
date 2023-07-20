@@ -1,12 +1,9 @@
 package ui.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ui.model.Case;
 import ui.model.Project;
-import ui.model.Suite;
 import ui.model.User;
 import ui.steps.LoginSteps;
 import ui.steps.NewCaseSteps;
@@ -18,7 +15,9 @@ public class CreateCaseTest extends BaseTest{
     private String nameProject = TestDataGenerator.generateNameProject();
     private String codeProject = TestDataGenerator.generateCodeProject();
     private String titleCase = TestDataGenerator.generateTitleCase();
-
+    private String login = System.getProperty("login");
+    private String password = System.getProperty("password");
+    User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
     Case testCase = Case.builder()
             .title(titleCase)
@@ -34,9 +33,8 @@ public class CreateCaseTest extends BaseTest{
             .build();
     ProjectsSteps projectsSteps = new ProjectsSteps();
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        User user = new User("m.s.morozoff@gmail.com","3359347m");
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
         projectsSteps.createProject(project);
@@ -50,7 +48,7 @@ public class CreateCaseTest extends BaseTest{
         Assert.assertTrue(projectSteps.messageSuccessCreateNewSuitCaseIsDisplayed(), "Case don't create");
     }
 
-    @AfterClass
+    @AfterMethod
     public void cleanUp() {
         projectsSteps.deleteProject(project);
     }

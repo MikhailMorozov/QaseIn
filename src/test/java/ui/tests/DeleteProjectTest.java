@@ -1,31 +1,29 @@
 package ui.tests;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.model.Project;
 import ui.model.User;
-import ui.page.ProjectsPage;
 import ui.steps.LoginSteps;
 import ui.steps.ProjectsSteps;
 import utilities.TestDataGenerator;
 
-import java.util.List;
-
 public class DeleteProjectTest extends BaseTest{
     private String nameProject = TestDataGenerator.generateNameProject();
     private String codeProject = TestDataGenerator.generateCodeProject();
+    private String login = System.getProperty("login");
+    private String password = System.getProperty("password");
+    User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
     ProjectsSteps projectsSteps = new ProjectsSteps();
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        User user = new User("m.s.morozoff@gmail.com","3359347m");
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
         projectsSteps.createProject(project);
-
     }
     @Test
     public void deleteProjectTest() {

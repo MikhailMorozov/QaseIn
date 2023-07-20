@@ -1,9 +1,7 @@
 package ui.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ui.model.Project;
 import ui.model.Suite;
 import ui.model.User;
@@ -17,14 +15,16 @@ public class DeleteSuiteTest extends BaseTest{
     private String nameProject = TestDataGenerator.generateNameProject();
     private String codeProject = TestDataGenerator.generateCodeProject();
     private String nameSuite = TestDataGenerator.generateNameSuite();
+    private String login = System.getProperty("login");
+    private String password = System.getProperty("password");
+    User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
     Suite suite = new Suite(nameSuite);
     ProjectsSteps projectsSteps = new ProjectsSteps();
     ProjectSteps projectSteps = new ProjectSteps();
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        User user = new User("m.s.morozoff@gmail.com","3359347m");
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
         projectsSteps.createProject(project);
@@ -37,7 +37,7 @@ public class DeleteSuiteTest extends BaseTest{
         Assert.assertTrue(projectSteps.messageSuccessDeleteSuiteIsDisplayed(), "Suite don't delete");
     }
 
-    @AfterClass
+    @AfterMethod
     public void cleanUp() {
         projectsSteps.deleteProject(project);
     }
