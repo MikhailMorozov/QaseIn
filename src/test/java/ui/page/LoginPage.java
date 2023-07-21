@@ -17,18 +17,21 @@ public class LoginPage extends BasePage{
 
     public LoginPage inputUsername(String username) {
         log.info("Enter login");
+        waitForElement(EMAIL_INPUT);
         driver.findElement(EMAIL_INPUT).sendKeys(username);
         return this;
     }
 
     public LoginPage inputPassword(String password) {
         log.info("Enter password");
+        waitForElement(PASSWORD_INPUT);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         return this;
     }
 
     public LoginPage clickLoginButton() {
         log.info("Click on the login button");
+        waitForElement(LOGIN_BUTTON);
         driver.findElement(LOGIN_BUTTON).click();
         return this;
     }

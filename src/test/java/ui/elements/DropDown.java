@@ -28,8 +28,12 @@ public class DropDown {
     public void selectOptionDelete(String nameProject) {
         new WebDriverWait(driver, TIMEOUT_EXPLICIT_WAIT_SECOND).until(ExpectedConditions
                 .visibilityOf(driver.findElement(By.xpath(String.format(DROP_DOWN_MENU_XPATH, nameProject))))).click();
-        driver.findElement(By.xpath(String.format(SELECT_OPTION_MENU_XPATH, nameProject))).click();
-        driver.findElement(By.xpath(DELETE_PROJECT_BUTTON_XPATH)).click();
+//        driver.findElement(By.xpath(String.format(SELECT_OPTION_MENU_XPATH, nameProject))).click();
+        new WebDriverWait(driver, TIMEOUT_EXPLICIT_WAIT_SECOND).until(ExpectedConditions
+                .visibilityOf((driver.findElement(By.xpath(String.format(SELECT_OPTION_MENU_XPATH, nameProject)))))).click();
+//        driver.findElement(By.xpath(DELETE_PROJECT_BUTTON_XPATH)).click();
+        new WebDriverWait(driver, TIMEOUT_EXPLICIT_WAIT_SECOND).until(ExpectedConditions
+                .visibilityOf((driver.findElement(By.xpath(String.format(DELETE_PROJECT_BUTTON_XPATH)))))).click();
     }
 
     public void selectOptionSuiteDelete(String nameSuite) {

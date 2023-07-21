@@ -1,5 +1,7 @@
 package ui.tests;
 
+import api.adapter.ProjectAdapter;
+import com.google.gson.Gson;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.model.Case;
@@ -28,27 +30,27 @@ public class DeleteCaseTest extends BaseTest{
             .behavior("Positive")
             .automationStatus("To be automated")
             .build();
-    ProjectsSteps projectsSteps = new ProjectsSteps();
-    @BeforeMethod
-    public void setUp() {
-
-    }
 
     @Test
     public void deleteCaseTest() {
-        ProjectsSteps projectsSteps = new ProjectsSteps();
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+
+        ProjectsSteps projectsSteps = new ProjectsSteps();
         projectsSteps.createProject(project);
+
         NewCaseSteps newCaseSteps = new NewCaseSteps();
         newCaseSteps.createNewCase(testCase);
 
         CaseSteps caseSteps = new CaseSteps();
         caseSteps.deleteCase(testCase);
+
         Assert.assertTrue(caseSteps.messageSuccessDeleteCaseIsDisplayed(), "Case don't delete");
     }
-    @AfterMethod
-    public void cleanUp() {
-        projectsSteps.deleteProject(project);
-    }
+//    @AfterClass
+//    public void cleanUp() {
+//        ProjectAdapter projectAdapter = new ProjectAdapter();
+//        String requestBody = new Gson().toJson(codeProject);
+//        projectAdapter.deleteProject(codeProject, requestBody);
+//    }
 }

@@ -9,8 +9,6 @@ R
 "src/test/java/api/models/Runs.java,3\5\35d8086d6f179bc87587708ff70dd31feb7b216d
 Q
 !src/test/java/ui/model/Suite.java,5\1\5116f5da10e243dcc993cfa17d8d4851b39be254
-W
-'src/test/java/ui/elements/DropDown.java,d\1\d13d947797f566220c0a56c9a8744e1ba1f32fbc
 ^
 .src/test/java/utilities/TestDataGenerator.java,b\b\bb0a0f40833c964e479d85b21cd5d2dc0f4f9808
 Q
@@ -27,7 +25,5 @@ Z
 *src/test/java/api/adapter/BaseAdapter.java,7\4\7403adad584fac76b985882fdbc751a315193110
 V
 &src/test/java/utilities/Constants.java,8\2\824628e6cf0e868e30de55ad0da27a1033ad9350
-U
-%src/test/java/ui/tests/LoginTest.java,c\2\c26628478666f8fb2c813515a11fc97613f9933f
 ]
 -src/test/java/api/adapter/ProjectAdapter.java,9\e\9e3e10fb8c729a6552dc121b79cdbbac3d4f3652

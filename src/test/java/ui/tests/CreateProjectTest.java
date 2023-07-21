@@ -20,19 +20,15 @@ public class CreateProjectTest extends BaseTest{
     User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
 
-    @BeforeClass
-    public void setUp() {
-//        LoginSteps loginSteps = new LoginSteps();
-//        loginSteps.login(user);
-    }
-
     @Test
     public void createProjectTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+
         ProjectsSteps projectsSteps = new ProjectsSteps();
-        ProjectSteps projectSteps = new ProjectSteps();
         projectsSteps.createProject(project);
+
+        ProjectSteps projectSteps = new ProjectSteps();
         Assert.assertEquals(projectSteps.getNameProject(project.getProjectName()),project.getProjectName(), "Project don't created");
     }
 
@@ -40,6 +36,7 @@ public class CreateProjectTest extends BaseTest{
     public void createProjectSameCodeProjectTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+
         ProjectsSteps projectsSteps = new ProjectsSteps();
         ProjectSteps projectSteps = new ProjectSteps();
         projectSteps.clickProjectsButton();
@@ -49,10 +46,6 @@ public class CreateProjectTest extends BaseTest{
 
     @AfterClass
     public void cleanUp() {
-//        ProjectsSteps projectsSteps = new ProjectsSteps();
-//        projectsSteps.clickProject(project)
-//                .deleteProject(project);
-
         ProjectAdapter projectAdapter = new ProjectAdapter();
         String requestBody = new Gson().toJson(codeProject);
         projectAdapter.deleteProject(codeProject, requestBody);

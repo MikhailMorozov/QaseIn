@@ -25,6 +25,7 @@ public class ProjectsPage extends BasePage{
 
     public boolean isButtonCreateNewProjectDisplayed() {
         log.info("is displayed button 'Create new project'");
+        waitForElement(CREATE_NEW_PROJECT_BUTTON);
         return driver.findElement(CREATE_NEW_PROJECT_BUTTON).isDisplayed();
     }
 
@@ -51,6 +52,7 @@ public class ProjectsPage extends BasePage{
 
     public ProjectsPage clickCreateProjectButton() {
         log.info("to click Create project button");
+        waitForElement(CREATE_PROJECT_BUTTON);
         driver.findElement(CREATE_PROJECT_BUTTON).click();
         return this;
     }

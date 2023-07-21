@@ -18,18 +18,13 @@ public class DeleteProjectTest extends BaseTest{
     User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
 
-
-    @BeforeMethod
-    public void setUp() {
-
-    }
     @Test
     public void deleteProjectTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+
         ProjectsSteps projectsSteps = new ProjectsSteps();
         projectsSteps.createProject(project);
-
         projectsSteps.deleteProject(project);
         Assert.assertFalse(projectsSteps.isNameProjectInProjectsList(project),"Project don't delete");
     }

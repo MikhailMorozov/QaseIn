@@ -15,6 +15,7 @@ public class LoginTest extends BaseTest{
     public void loginSiteTest() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
+
         ProjectsSteps projectsSteps = new ProjectsSteps();
         Assert.assertTrue(projectsSteps.buttonCreateNewProjectIsDisplayed(), "Login failed");
     }
