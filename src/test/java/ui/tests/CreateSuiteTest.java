@@ -1,5 +1,8 @@
 package ui.tests;
 
+import api.adapter.ProjectAdapter;
+import com.google.gson.Gson;
+import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.model.Project;
@@ -26,19 +29,24 @@ public class CreateSuiteTest extends BaseTest{
 
     @BeforeMethod
     public void setUp() {
-        LoginSteps loginSteps = new LoginSteps();
-        loginSteps.login(user);
-        projectsSteps.createProject(project);
+
     }
 
     @Test
     public void createNewSuiteTest() {
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(user);
+        projectsSteps.createProject(project);
+        System.out.println(project.getProjectCode());
+
         ProjectSteps projectSteps = new ProjectSteps();
         projectSteps.createNewSuite(suite);
         Assert.assertTrue(projectSteps.messageSuccessCreateNewSuiteIsDisplayed(), "Suite don't create");
     }
     @AfterMethod
     public void cleanUp() {
-        projectsSteps.deleteProject(project);
+        ProjectAdapter projectAdapter = new ProjectAdapter();
+        String requestBody = new Gson().toJson(codeProject);
+        projectAdapter.deleteProject(codeProject, requestBody);
     }
 }

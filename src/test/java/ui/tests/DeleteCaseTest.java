@@ -31,15 +31,18 @@ public class DeleteCaseTest extends BaseTest{
     ProjectsSteps projectsSteps = new ProjectsSteps();
     @BeforeMethod
     public void setUp() {
+
+    }
+
+    @Test
+    public void deleteCaseTest() {
+        ProjectsSteps projectsSteps = new ProjectsSteps();
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.login(user);
         projectsSteps.createProject(project);
         NewCaseSteps newCaseSteps = new NewCaseSteps();
         newCaseSteps.createNewCase(testCase);
-    }
 
-    @Test
-    public void deleteCaseTest() {
         CaseSteps caseSteps = new CaseSteps();
         caseSteps.deleteCase(testCase);
         Assert.assertTrue(caseSteps.messageSuccessDeleteCaseIsDisplayed(), "Case don't delete");

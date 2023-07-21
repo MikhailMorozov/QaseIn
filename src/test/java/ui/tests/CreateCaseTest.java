@@ -1,5 +1,7 @@
 package ui.tests;
 
+import api.adapter.ProjectAdapter;
+import com.google.gson.Gson;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.model.Case;
@@ -31,25 +33,35 @@ public class CreateCaseTest extends BaseTest{
             .behavior("Positive")
             .automationStatus("To be automated")
             .build();
-    ProjectsSteps projectsSteps = new ProjectsSteps();
+
 
     @BeforeMethod
     public void setUp() {
-        LoginSteps loginSteps = new LoginSteps();
-        loginSteps.login(user);
-        projectsSteps.createProject(project);
+
     }
 
     @Test
     public void createNewCaseTest() {
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(user);
+
+        ProjectsSteps projectsSteps = new ProjectsSteps();
+        projectsSteps.createProject(project);
+
         NewCaseSteps newCaseSteps = new NewCaseSteps();
         newCaseSteps.createNewCase(testCase);
+
         ProjectSteps projectSteps = new ProjectSteps();
         Assert.assertTrue(projectSteps.messageSuccessCreateNewSuitCaseIsDisplayed(), "Case don't create");
     }
 
     @AfterMethod
     public void cleanUp() {
-        projectsSteps.deleteProject(project);
+//        ProjectsSteps projectsSteps = new ProjectsSteps();
+//        projectsSteps.deleteProject(project);
+
+//        ProjectAdapter projectAdapter = new ProjectAdapter();
+//        String requestBody = new Gson().toJson(codeProject);
+//        projectAdapter.deleteProject(codeProject, requestBody);
     }
 }

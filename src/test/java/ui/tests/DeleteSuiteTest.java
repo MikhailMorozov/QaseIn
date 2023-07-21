@@ -1,5 +1,7 @@
 package ui.tests;
 
+import api.adapter.ProjectAdapter;
+import com.google.gson.Gson;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.model.Project;
@@ -25,20 +27,26 @@ public class DeleteSuiteTest extends BaseTest{
 
     @BeforeMethod
     public void setUp() {
-        LoginSteps loginSteps = new LoginSteps();
-        loginSteps.login(user);
-        projectsSteps.createProject(project);
-        projectSteps.createNewSuite(suite);
+
     }
 
     @Test
     public void deleteSuiteTest() {
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(user);
+        projectsSteps.createProject(project);
+        projectSteps.createNewSuite(suite);
+
         projectSteps.deleteSuite(suite);
         Assert.assertTrue(projectSteps.messageSuccessDeleteSuiteIsDisplayed(), "Suite don't delete");
     }
 
     @AfterMethod
     public void cleanUp() {
-        projectsSteps.deleteProject(project);
+//        projectsSteps.deleteProject(project);
+
+        ProjectAdapter projectAdapter = new ProjectAdapter();
+        String requestBody = new Gson().toJson(codeProject);
+        projectAdapter.deleteProject(codeProject, requestBody);
     }
 }

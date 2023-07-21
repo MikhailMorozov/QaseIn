@@ -7,10 +7,9 @@ import ui.page.ProjectPage;
 @Log4j2
 public class CaseSteps {
 
-    ProjectPage projectPage = new ProjectPage();
-
     @Step("Delete case")
     public CaseSteps deleteCase(Case testCase) {
+        ProjectPage projectPage = new ProjectPage();
         projectPage.clickCheckboxCase(testCase)
                 .clickDeleteButton()
                 .inputTextToConfirmDelete()
@@ -20,9 +19,8 @@ public class CaseSteps {
 
     @Step("Message delete case is displayed")
     public boolean messageSuccessDeleteCaseIsDisplayed() {
+        ProjectPage projectPage = new ProjectPage();
         log.info("message '1 test case was successfully deleted' is displayed");
         return projectPage.isMessageSuccessDeleteCaseDisplayed();
     }
-
-
 }

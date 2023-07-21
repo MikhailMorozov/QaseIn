@@ -30,6 +30,7 @@ public class ProjectsPage extends BasePage{
 
     public ProjectsPage clickCreateNemProjectButton() {
         log.info("to click Create new project button");
+        waitForElement(CREATE_NEW_PROJECT_BUTTON);
         driver.findElement(CREATE_NEW_PROJECT_BUTTON).click();
         return this;
     }
@@ -42,6 +43,7 @@ public class ProjectsPage extends BasePage{
 
     public ProjectsPage inputProjectCode(Project project) {
         log.info("input project code");
+        waitForElement(PROJECT_CODE_INPUT);
         driver.findElement(PROJECT_CODE_INPUT).clear();
         driver.findElement(PROJECT_CODE_INPUT).sendKeys(project.getProjectCode());
         return this;
@@ -88,6 +90,7 @@ public class ProjectsPage extends BasePage{
 
     public boolean isMessageDataInvalidDisplayed() {
         log.info("is displayed message 'Data is invalid.'");
+        waitForElement(DATA_INVALID_MESSAGE);
         return driver.findElement(DATA_INVALID_MESSAGE).isDisplayed();
     }
 

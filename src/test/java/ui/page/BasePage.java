@@ -17,6 +17,6 @@ public abstract class BasePage {
     }
 
     public WebElement waitForElement(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 }

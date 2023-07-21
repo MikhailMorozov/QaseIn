@@ -8,9 +8,9 @@ import ui.page.LoginPage;
 @Log4j2
 public class LoginSteps {
 
-    LoginPage loginPage = new LoginPage();
     @Step("Login on site")
     public LoginSteps login (User user) {
+        LoginPage loginPage = new LoginPage();
         log.info("Login on site");
         loginPage.openPage()
                 .inputUsername(user.getLogin())

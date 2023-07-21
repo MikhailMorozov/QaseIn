@@ -5,7 +5,6 @@ import ui.model.Case;
 import ui.page.NewCasePage;
 
 public class NewCaseSteps {
-
     @Step("Create new case")
     public NewCaseSteps createNewCase(Case testCase) {
         ProjectSteps projectSteps = new ProjectSteps();

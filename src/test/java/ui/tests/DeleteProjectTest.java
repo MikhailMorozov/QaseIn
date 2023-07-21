@@ -17,16 +17,19 @@ public class DeleteProjectTest extends BaseTest{
     private String password = System.getProperty("password");
     User user = new User(login,password);
     Project project = new Project(nameProject, codeProject);
-    ProjectsSteps projectsSteps = new ProjectsSteps();
+
 
     @BeforeMethod
     public void setUp() {
-        LoginSteps loginSteps = new LoginSteps();
-        loginSteps.login(user);
-        projectsSteps.createProject(project);
+
     }
     @Test
     public void deleteProjectTest() {
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.login(user);
+        ProjectsSteps projectsSteps = new ProjectsSteps();
+        projectsSteps.createProject(project);
+
         projectsSteps.deleteProject(project);
         Assert.assertFalse(projectsSteps.isNameProjectInProjectsList(project),"Project don't delete");
     }
